@@ -1,65 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>AI Chat — Pro Complete</title>
-<link rel="stylesheet" href="style.css">
-<link rel="manifest" href="manifest.json">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>KisahSuksesPro</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body{font-family:system-ui,Segoe UI,Arial;margin:16px}
+    .row{display:flex;gap:16px;flex-wrap:wrap}
+    .card{border:1px solid #ddd;padding:12px;border-radius:8px;width:320px}
+    iframe{max-width:100%}
+    #yt-mini{width:320px;height:180px}
+  </style>
 </head>
 <body>
-<header class="topbar">
-  <div class="brand">AI Chat — Pro</div>
-  <div class="top-actions">
-    <button id="themeToggle" title="Toggle dark/light">🌙</button>
-    <button id="openDashboard" title="Open dashboard">📊</button>
-    <button id="exportBtn" title="Export chats">⬇️</button>
-    <input id="fileInput" type="file" title="Upload file to include in prompt" />
-  </div>
-</header>
+  <h1 id="title">KisahSuksesPro</h1>
 
-<div class="container">
-  <aside class="sidebar">
-    <div class="sidebar-head">
-      <button id="newChatBtn">+ New Chat</button>
-      <input id="searchChats" placeholder="Search chats..." />
+  <div class="row">
+    <div class="card">
+      <h3>YouTube Mini</h3>
+      <div id="yt-container">
+        <!-- Iframe inserted by JS -->
+        <div id="yt-mini"></div>
+      </div>
+      <p><button id="yt-play">Play/Pause</button></p>
     </div>
-    <ul id="chatList"></ul>
-    <div class="sidebar-foot">
-      <button id="clearAll">Clear All</button>
-    </div>
-  </aside>
 
-  <main class="main">
-    <div id="conversationHeader" class="conversation-header">
-      <div id="chatTitle">Welcome</div>
-      <div class="conv-actions">
-        <button id="renameChat">Rename</button>
-        <button id="deleteChat">Delete</button>
+    <div class="card">
+      <h3>Social Embeds</h3>
+      <div id="social-wrap">
+        <!-- Instagram / TikTok / Facebook embed placeholders -->
       </div>
     </div>
 
-    <div id="messages" class="messages"></div>
-
-    <div class="input-wrap">
-      <button id="voiceBtn" title="Voice input">🎤</button>
-      <input id="input" placeholder="Ask something..." autocomplete="off" />
-      <button id="sendBtn">Send</button>
-      <button id="ttsBtn" title="Read last message">🔊</button>
-      <button id="clearChatBtn" title="Clear conversation">🗑️</button>
+    <div class="card">
+      <h3>Weather</h3>
+      <div id="weather">Loading...</div>
     </div>
-  </main>
-</div>
 
-<!-- Dashboard modal -->
-<div id="dashboard" class="modal hidden" role="dialog" aria-hidden="true">
-  <div class="modal-content">
-    <h3>Dashboard</h3>
-    <div id="stats"></div>
-    <button id="closeDashboard">Close</button>
+    <div class="card">
+      <h3>Quote</h3>
+      <div id="quote">Loading...</div>
+      <button id="next-quote">Next quote</button>
+    </div>
   </div>
-</div>
 
-<script src="ai.js"></script>
+  <hr>
+
+  <div class="row">
+    <div class="card" style="flex:1 1 600px">
+      <h3>Chat AI (Groq)</h3>
+      <div id="chat-log" style="height:300px;overflow:auto;border:1px solid #eee;padding:8px"></div>
+      <input id="chat-input" placeholder="Tulis pesan..." style="width:80%"/>
+      <button id="chat-send">Kirim</button>
+    </div>
+
+    <div class="card">
+      <h3>Game</h3>
+      <!-- Example HTML5 game iframe (change src ke game pilihanmu) -->
+      <iframe id="game-frame" src="https://html5games.com/g/somegame" width="320" height="240" title="Game"></iframe>
+    </div>
+  </div>
+
+  <script src="client.js"></script>
+
+  <!-- Instagram embed script (official) -->
+  <script async src="//www.instagram.com/embed.js"></script>
+  <!-- TikTok embed script -->
+  <script async src="https://www.tiktok.com/embed.js"></script>
+  <!-- Facebook SDK: if you need full FB plugins, follow FB docs (app id required) -->
 </body>
 </html>
